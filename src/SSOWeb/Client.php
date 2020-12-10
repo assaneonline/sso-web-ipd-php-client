@@ -8,8 +8,8 @@ class Client {
 
     const SSO_BASE_PATH = 'http://10.1.7.42/sso-dev/index.php';
 
-    protected $applicaiton_id = "";
-    protected $applicaiton_secret = "";
+    protected $application_id = "";
+    protected $application_secret = "";
     protected $redirect_url = "";
     protected $nonce = "";
 
@@ -20,12 +20,12 @@ class Client {
         ];
         $configs = array_merge($default_configs, $configs);
 
-        $this->applicaiton_id = $configs["applicaiton_id"];
+        $this->application_id = $configs["application_id"];
         $this->application_secret = $configs["application_secret"];
         $this->redirect_url = $configs["redirect_url"] . (strpos($configs["redirect_url"], "?") === false ? "?" : "") . "&nnc={nnc}&hsh={hsh}&usr={usr}&";
         $this->nonce = $configs["nonce"];
 
-        if(!$this->applicaiton_id) throw new Exception("SSO Client missing application ID.");
+        if(!$this->application_id) throw new Exception("SSO Client missing application ID.");
         if(!$this->application_secret) throw new Exception("SSO Client missing application secret.");
         if(!$this->redirect_url) throw new Exception("SSO Client missing redirect url.");
         if(!$this->nonce) throw new Exception("SSO Client missing nonce.");
@@ -48,7 +48,7 @@ class Client {
         $hash = $_GET['hsh'];
 
         // Secretly shared with SSO server :
-        $application_secret = $this->applicaiton_secret;
+        $application_secret = $this->application_secret;
 
         // Chech hash :
         return $hash == sha1($application_secret . $usr . $nonce);
