@@ -1,0 +1,32 @@
+{
+    "name": "assaneonline/sso-web-ipd-php-client",
+    "description": "IPD Web SSO PHP Client",
+    "type": "library",
+    "keywords": ["ipd", "sso", "web", "rest", "api", "client"],
+    "homepage": "https://github.com/assaneonline/sso-web-ipd-php-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Assane Mbengue",
+            "email": "assane101@gmail.com",
+            "homepage": "https://github.com/assaneonline",
+            "role": "Developer"
+        },
+        {
+            "name": "Mamadou Cissé",
+            "email": "mseesay024@gmail.com",
+            "homepage": "https://github.com/mseesay",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl": "^7.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "SSOWeb": "src/"
+        }
+    }
+}
