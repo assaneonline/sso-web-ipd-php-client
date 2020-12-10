@@ -19,10 +19,7 @@
             "role": "Developer"
         }
     ],
-    "require": {
-        "php": ">=5.3.0",
-        "ext-curl": "^7.3"
-    },
+    "require": {},
     "autoload": {
         "psr-0": {
             "SSOWeb": "src/"
