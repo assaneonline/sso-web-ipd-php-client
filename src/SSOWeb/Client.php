@@ -7,6 +7,9 @@ use Exception;
 class Client {
 
     const SSO_BASE_PATH = 'http://10.1.7.42/sso-dev/index.php';
+    const USERNAME_QUERY_STRING_KEY = "usr";
+    const NONCE_QUERY_STRING_KEY = "nnc";
+    const HASH_QUERY_STRING_KEY = "hsh";
 
     protected $application_id = "";
     protected $application_secret = "";
@@ -22,7 +25,7 @@ class Client {
 
         $this->application_id = $configs["application_id"];
         $this->application_secret = $configs["application_secret"];
-        $this->redirect_url = $configs["redirect_url"] . (strpos($configs["redirect_url"], "?") === false ? "?" : "") . "&nnc={nnc}&hsh={hsh}&usr={usr}&";
+        $this->redirect_url = $configs["redirect_url"] . (strpos($configs["redirect_url"], "?") === false ? "?" : "") . "&" . self::NONCE_QUERY_STRING_KEY . "={nnc}&" . self::HASH_QUERY_STRING_KEY . "={hsh}&" . self::USERNAME_QUERY_STRING_KEY . "={usr}&";
         $this->nonce = $configs["nonce"];
 
         if(!$this->application_id) throw new Exception("SSO Client missing application ID.");
@@ -52,5 +55,9 @@ class Client {
 
         // Chech hash :
         return $hash == sha1($application_secret . $usr . $nonce);
+    }
+
+    static function get_username(){
+        return $_GET[self::USERNAME_QUERY_STRING_KEY];
     }
 }
