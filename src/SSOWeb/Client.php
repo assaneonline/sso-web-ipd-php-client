@@ -6,7 +6,7 @@ use Exception;
 
 class Client {
 
-    const SSO_BASE_PATH = 'http://10.1.7.42/sso-dev/index.php';
+    const SSO_BASE_PATH = 'http://sso.dev.pasteur.sn/';
     const USERNAME_QUERY_STRING_KEY = "usr";
     const NONCE_QUERY_STRING_KEY = "nnc";
     const HASH_QUERY_STRING_KEY = "hsh";
