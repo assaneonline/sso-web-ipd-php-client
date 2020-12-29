@@ -35,7 +35,7 @@ class Client {
     }
 
     function get_auth_url (){
-        return self::SSO_BASE_PATH . "?application_id=sso-dev&nnc=" . $this->nonce . "&redirect=" . urlencode($this->redirect_url);
+        return self::SSO_BASE_PATH . "?application_id=".$this->application_id."&nnc=" . $this->nonce . "&redirect=" . urlencode($this->redirect_url);
     }
 
     function authenticate (){
