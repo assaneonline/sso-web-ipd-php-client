@@ -10,6 +10,7 @@ class Client {
     const USERNAME_QUERY_STRING_KEY = "usr";
     const NONCE_QUERY_STRING_KEY = "nnc";
     const HASH_QUERY_STRING_KEY = "hsh";
+    const ACCESS_TOKEN_QUERY_STRING_KEY = "ipdsso";
 
     protected $application_id = "";
     protected $application_secret = "";
@@ -58,6 +59,10 @@ class Client {
     }
 
     static function get_username(){
-        return $_GET[self::USERNAME_QUERY_STRING_KEY];
+        return $_GET[self::USERNAME_QUERY_STRING_KEY] ?? null;
+    }
+
+    function get_access_token (){
+        return $_GET[self::ACCESS_TOKEN_QUERY_STRING_KEY] ?? null;
     }
 }
